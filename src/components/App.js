@@ -4,6 +4,7 @@ import AddTask from "./AddTask";
 import TaskList from "./TaskList";
 
 class App extends Component {
+  counter = 9;
   state = {
     tasks: [
       {
@@ -69,11 +70,27 @@ class App extends Component {
       tasks
     });
   };
+  addTask = (text, date, important) => {
+    // console.log("dodaje");
+    const task = {
+      id: this.counter,
+      text,
+      date,
+      important,
+      active: true,
+      finishDate: null
+    };
+    this.counter++;
+    this.setState(prevState => ({
+      tasks: [...prevState.tasks, task]
+    }));
+    return true;
+  };
   render() {
     return (
       <div>
         <h1>asda</h1>
-        <AddTask />
+        <AddTask addTask={this.addTask} />
         <TaskList
           tasks={this.state.tasks}
           delateTask={this.delateTask}
