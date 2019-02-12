@@ -6,48 +6,7 @@ import TaskList from "./TaskList";
 class App extends Component {
   counter = 9;
   state = {
-    tasks: [
-      {
-        id: 0,
-        text: "naucyc sie reacta",
-        date: "2029-03-10",
-        important: true,
-        active: true,
-        finishDate: false
-      },
-      {
-        id: 1,
-        text: "ugotowac",
-        date: "2019-03-19",
-        important: true,
-        active: false,
-        finishDate: false
-      },
-      {
-        id: 2,
-        text: "przygotowac",
-        date: "2019-02-10",
-        important: true,
-        active: true,
-        finishDate: false
-      },
-      {
-        id: 3,
-        text: "posprzatac",
-        date: "2019-03-12",
-        important: true,
-        active: true,
-        finishDate: false
-      },
-      {
-        id: 4,
-        text: "posprzatac2",
-        date: "2019-03-12",
-        important: true,
-        active: true,
-        finishDate: false
-      }
-    ]
+    tasks: []
   };
   doneTask = id => {
     const tasks = [...this.state.tasks];
@@ -55,6 +14,7 @@ class App extends Component {
     const index = tasks.findIndex(element => element.id === id);
 
     tasks[index].active = false;
+    tasks[index].finishDate = new Date().toISOString().slice(0, 10);
 
     this.setState({
       tasks
@@ -88,8 +48,9 @@ class App extends Component {
   };
   render() {
     return (
-      <div>
-        <h1>asda</h1>
+      <div className="App">
+        <h1>TODO LIST</h1>
+
         <AddTask addTask={this.addTask} />
         <TaskList
           tasks={this.state.tasks}

@@ -23,15 +23,15 @@ const TaskList = props => {
   ));
 
   return (
-    <div>
-      <div>
+    <div className="content">
+      <div className="taskList">
         {" "}
-        <strong>do zrobienia</strong>{" "}
+        <h3>do zrobienia</h3>{" "}
         {todoTask.length === 0 ? <p>nie masz nic do zrobienia</p> : todoTasks}
       </div>
-      <div>
+      <div className="doneList">
         {" "}
-        <strong>zrobione</strong> {doneTasks}
+        <h3>zrobione</h3> {doneTasks}
       </div>
     </div>
   );

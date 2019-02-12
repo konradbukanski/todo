@@ -18,7 +18,7 @@ const Task = props => {
     return (
       <div>
         <p>
-          <strong>{props.task.text}</strong> -- {props.task.date}
+          <strong>{props.task.text}</strong> -- {props.task.finishDate}
         </p>
       </div>
     );

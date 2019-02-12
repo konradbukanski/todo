@@ -29,40 +29,44 @@ class AddTask extends Component {
     // console.log("dodaj");
     e.preventDefault();
     const { text, checked, date } = this.state;
-    const add = this.props.addTask(text, date, checked);
-    if (add) {
-      this.setState({
-        text: "",
-        checked: false,
-        date: this.minDate
-      });
+    if (text.length > 2) {
+      const add = this.props.addTask(text, date, checked);
+      if (add) {
+        this.setState({
+          text: "",
+          checked: false,
+          date: this.minDate
+        });
+      }
+    } else {
+      alert("zadanie musi być dłuższe niż 2 znaki");
     }
   };
   render() {
     return (
       <form>
-        <p>dodaj zadanie</p>
+        <h3>nowe zadanie</h3>
         <input
           className="taskName"
           type="text"
           value={this.state.text}
           onChange={this.handleText}
-          required="required"
+          placeholder="nazwa"
         />
+        <br />
         <label>
           <input
             className="important"
             type="checkbox"
             checked={this.state.important}
             onChange={this.handleCheck}
-            required="required"
           />{" "}
-          Priorytet
+          Ważne
         </label>
         <p>
           <label>
             {" "}
-            Do kiedy zrobić?
+            <p>Do kiedy zrobić?</p>
             <input
               className="date"
               type="date"
