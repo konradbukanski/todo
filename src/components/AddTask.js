@@ -44,39 +44,43 @@ class AddTask extends Component {
   };
   render() {
     return (
-      <form>
-        <h3>nowe zadanie</h3>
-        <input
-          className="taskName"
-          type="text"
-          value={this.state.text}
-          onChange={this.handleText}
-          placeholder="nazwa"
-        />
-        <br />
-        <label>
-          <input
-            className="important"
-            type="checkbox"
-            checked={this.state.important}
-            onChange={this.handleCheck}
-          />{" "}
-          Ważne
-        </label>
-        <p>
-          <label>
-            {" "}
-            <p>Do kiedy zrobić?</p>
-            <input
-              className="date"
-              type="date"
-              value={this.state.date}
-              onChange={this.handleDate}
-            />
-          </label>
-        </p>
-        <button onClick={this.handleClick}>Dodaj</button>
-      </form>
+      <div className="newTask">
+        <h3>DODAJ NOWE ZADANIE</h3>
+        <form>
+          <div className="newTask__inputs">
+            <label>
+              <span>Nazwa </span>
+              <input
+                className="taskName"
+                type="text"
+                value={this.state.text}
+                onChange={this.handleText}
+                placeholder="nazwa"
+              />
+            </label>
+            <label>
+              <input
+                className="important"
+                type="checkbox"
+                checked={this.state.important}
+                onChange={this.handleCheck}
+              />{" "}
+              Ważne
+            </label>
+            <label>
+              {" "}
+              <span>Termin </span>
+              <input
+                className="date"
+                type="date"
+                value={this.state.date}
+                onChange={this.handleDate}
+              />
+            </label>
+            <button onClick={this.handleClick}>Dodaj</button>
+          </div>
+        </form>
+      </div>
     );
   }
 }

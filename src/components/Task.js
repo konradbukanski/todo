@@ -5,7 +5,7 @@ const Task = props => {
     return (
       <div>
         <p>
-          <strong>{props.task.text}</strong> -- {props.task.date} --{" "}
+          <strong>{props.task.text}</strong> do {props.task.date} --{" "}
           {props.task.finishDate}{" "}
           <button onClick={() => props.doneTask(props.task.id)}>
             zrobione
@@ -18,7 +18,7 @@ const Task = props => {
     return (
       <div>
         <p>
-          <strong>{props.task.text}</strong> -- {props.task.finishDate}
+          <strong>{props.task.text}</strong> dnia {props.task.finishDate}
         </p>
       </div>
     );
